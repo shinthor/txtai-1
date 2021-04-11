@@ -29,7 +29,7 @@ class Labels(HFPipeline):
         Returns:
             list of (id, score)
         """
-        kwargs = {"truncation": True}
+        kwargs = {"truncation": True, "max_length": 512, "max_seq_length": 512}
         # Run ZSL pipeline
         results = self.pipeline(text, labels, multi_label=multilabel, **kwargs)
 
