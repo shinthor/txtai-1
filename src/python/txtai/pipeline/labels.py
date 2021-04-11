@@ -29,9 +29,9 @@ class Labels(HFPipeline):
         Returns:
             list of (id, score)
         """
-
+        kwargs = {"truncation": True}
         # Run ZSL pipeline
-        results = self.pipeline(text, labels, multi_label=multilabel)
+        results = self.pipeline(text, labels, multi_label=multilabel, **kwargs)
 
         # Convert results to a list if necessary
         if not isinstance(results, list):
