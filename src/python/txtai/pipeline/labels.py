@@ -29,8 +29,9 @@ class Labels(HFPipeline):
         Returns:
             list of (id, score)
         """
-        kwargs = {"truncation": True, "max_length": 512, "max_seq_length": 512}
+        kwargs = {"truncation": True,}
         # Run ZSL pipeline
+        self.pipeline.tokenizer.model_max_length = 512
         results = self.pipeline(text, labels, multi_label=multilabel, **kwargs)
 
         # Convert results to a list if necessary
